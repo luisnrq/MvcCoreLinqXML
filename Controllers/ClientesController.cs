@@ -40,5 +40,24 @@ namespace MvcCoreLinqXML.Controllers
             this.repo.AddClient(cliente.IdCliente, cliente.Nombre, cliente.Direccion, cliente.Email, cliente.Imagen);
             return RedirectToAction("Index");
         }
+
+        public IActionResult Edit(int id)
+        {
+            Cliente cliente = this.repo.FindCliente(id);
+            return View(cliente);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Cliente cliente)
+        {
+            this.repo.UpdateCliente(cliente.IdCliente, cliente.Nombre, cliente.Direccion, cliente.Email, cliente.Imagen);
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult Delete(int id)
+        {
+            this.repo.DeleteCliente(id);
+            return RedirectToAction("Index");
+        }
     }
 }

@@ -112,11 +112,4 @@
     <EMAIL>maverick@topgun.com</EMAIL>
     <IMAGENCLIENTE>http://i0.wp.com/www.ruthlessreviews.com/wp-content/uploads/2011/08/TOP-GUN-ICEMAN12.jpg</IMAGENCLIENTE>
   </CLIENTE>
-  <CLIENTE>
-    <IDCLIENTE>124</IDCLIENTE>
-    <NOMBRE>Ricardito</NOMBRE>
-    <DIRECCION>Calle Centro</DIRECCION>
-    <EMAIL>ricardo@gmail.com</EMAIL>
-    <IMAGENCLIENTE>https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/1200px-Image_created_with_a_mobile_phone.png</IMAGENCLIENTE>
-  </CLIENTE>
 </CLIENTES>
