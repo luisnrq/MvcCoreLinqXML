@@ -1,10 +1,10 @@
-﻿@model IEnumerable<MvcCoreLinqXML.Models.Pelicula>
+﻿@model IEnumerable<MvcCoreLinqXML.Models.Escena>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "EscenasPeliculas";
 }
 
-<h1>Index</h1>
+<h1>EscenasPeliculas</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -19,13 +19,10 @@
                 @Html.DisplayNameFor(model => model.Titulo)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TituloOriginal)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.Descripcion)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Poster)
+                @Html.DisplayNameFor(model => model.Imagen)
             </th>
             <th></th>
         </tr>
@@ -40,18 +37,15 @@
                 @Html.DisplayFor(modelItem => item.Titulo)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.TituloOriginal)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.Descripcion)
             </td>
             <td>
-                <img src="@item.Poster" style="width:150px;height:150px" />
+                @Html.DisplayFor(modelItem => item.Imagen)
             </td>
             <td>
-                <a asp-controller="Peliculas" asp-action="EscenasPeliculas" asp-route-idpelicula="@item.IdPelicula" class="btn btn-info">Escenas</a> |
-                <a asp-controller="Peliculas" asp-action="EscenaPelicula" asp-route-idpelicula="@item.IdPelicula" class="btn btn-warning">Escenas Paginadas</a>
-                <a asp-controller="Peliculas" asp-action="DetailPelicula" asp-route-idpelicula="@item.IdPelicula" class="btn btn-warning">Escenas Paginadas Ajax</a>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
             </td>
         </tr>
 }

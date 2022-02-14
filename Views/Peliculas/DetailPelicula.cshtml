@@ -1,0 +1,37 @@
+﻿@model List<Pelicula>
+
+@{
+    ViewData["Title"] = "EscenaPelicula";
+}
+
+@section Scripts
+{
+    <script>
+        $(document).ready(function () {
+            $("#cargarVista").click(function () {
+                $("#vista").load("/Peliculas/_DetailPelicula");
+            });
+            $("#botonbuscarcoche").click(function () {
+                var idcoche = $("#cajaidcoche").val();
+                //Controller/Action?id=3
+                //Controller/Action?id=3&otro=valor
+                //Controller/Action/3
+                var request = "/Coches/_CochesDetailsPartial?idcoche=" + idcoche;
+                $("#capadetailscoche").load(request);
+            });
+        });
+    </script>
+}
+
+@foreach(List<Pelicula> peli in Model)
+            {
+
+            }
+
+<button id="cargarVista">Cargar</button>
+<div id="vista"></div>
+
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

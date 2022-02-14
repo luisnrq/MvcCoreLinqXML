@@ -25,16 +25,17 @@ namespace MvcCoreLinqXML
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton<PathProvider>();
             services.AddSingleton<RepositoryJoyerias>();
             services.AddSingleton<RepositoryClientes>();
             services.AddSingleton<RepositoryPeliculas>();
+            services.AddSingleton<RepositoryEscenas>();
             services.AddControllersWithViews();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            PathProvider.Initialize(env);
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

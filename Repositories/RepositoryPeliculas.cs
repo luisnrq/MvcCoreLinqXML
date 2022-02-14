@@ -13,10 +13,10 @@ namespace MvcCoreLinqXML.Repositories
         private XDocument document;
         private string path;
 
-        public RepositoryPeliculas(PathProvider pathProvider)
+        public RepositoryPeliculas()
         {
-            this.path = pathProvider.MapPath("peliculas.xml", Folders.Documents);
-            this.document = XDocument.Load(path);
+            this.path = PathProvider.MapPath("peliculas.xml", Folders.Documents);
+            document = XDocument.Load(path);
         }
 
         public List<Pelicula> GetPeliculas()
@@ -36,5 +36,6 @@ namespace MvcCoreLinqXML.Repositories
             }
             return listPeliculas;
         }
+
     }
 }
