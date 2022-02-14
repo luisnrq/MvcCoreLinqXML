@@ -11,12 +11,32 @@
 {
     <script>
         $(document).ready(function () {
-            $("#cargarVista2").click(function () {
+            
+            var idpelicula = $("#idpelicula").val();
+            //Controller/Action?id=3
+            //Controller/Action?id=3&otro=valor
+            //Controller/Action/3
+            var request = "/Peliculas/_DetailPelicula?idpelicula=" + idpelicula;
+            $("#vista").load(request);
+            
+
+            var posicion = 0;
+            $("#siguiente").click(function () {
                 var idpelicula = $("#idpelicula").val();
                 //Controller/Action?id=3
                 //Controller/Action?id=3&otro=valor
                 //Controller/Action/3
-                var request = "/Peliculas/_DetailPelicula?idpelicula=" + idpelicula;
+                var request = "/Peliculas/_DetailPelicula?idpelicula=" + idpelicula + "&posicion=" + posicion;
+                posicion += 1;
+                $("#vista").load(request);
+            });
+            $("#anterior").click(function () {
+                var idpelicula = $("#idpelicula").val();
+                //Controller/Action?id=3
+                //Controller/Action?id=3&otro=valor
+                //Controller/Action/3
+                var request = "/Peliculas/_DetailPelicula?idpelicula=" + idpelicula + "&posicion=" + posicion;
+                posicion -= 1;
                 $("#vista").load(request);
             });
         });
@@ -59,7 +79,10 @@
 
 }
 
-<button id="cargarVista2">Cargar Escenas</button>
+
+
+<button id="anterior">Anterior</button>
+<button id="siguiente">Siguiente</button>
 <div id="vista"></div>
 
 
