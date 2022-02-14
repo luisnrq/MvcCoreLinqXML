@@ -63,6 +63,8 @@ namespace MvcCoreLinqXML.Controllers
         public IActionResult DetailPelicula(int idpelicula)
         {
             List<Pelicula> peliculas = this.repoPelis.GetPeliculas();
+            List<Escena> escenas = this.repoEscenas.GetEscenasPeliculas(idpelicula);
+            ViewData["ESCENASTOTALES"] = escenas.Count();
             ViewData["IDPELICULA"] = idpelicula;
             return View(peliculas);
         }

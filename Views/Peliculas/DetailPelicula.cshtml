@@ -3,22 +3,26 @@
 @{
     ViewData["Title"] = "EscenaPelicula";
     int idpeli = (int)ViewData["IDPELICULA"];
+    int escenastotales = (int)ViewData["ESCENASTOTALES"];
 }
 
 <input type="hidden" value="@idpeli" id="idpelicula" />
+<input type="hidden" value="@escenastotales" id="escenastotales" />
+
 
 @section Scripts
 {
     <script>
         $(document).ready(function () {
-            
+
             var idpelicula = $("#idpelicula").val();
+            var escenastotales = $("#escenastotales").val();
             //Controller/Action?id=3
             //Controller/Action?id=3&otro=valor
             //Controller/Action/3
             var request = "/Peliculas/_DetailPelicula?idpelicula=" + idpelicula;
             $("#vista").load(request);
-            
+
 
             var posicion = 0;
             $("#siguiente").click(function () {
@@ -26,8 +30,15 @@
                 //Controller/Action?id=3
                 //Controller/Action?id=3&otro=valor
                 //Controller/Action/3
+                if (posicion < escenastotales) {
+                    posicion += 1;
+                }
+                else {
+                    posicion = escenastotales;
+                }
+                console.log(posicion);
                 var request = "/Peliculas/_DetailPelicula?idpelicula=" + idpelicula + "&posicion=" + posicion;
-                posicion += 1;
+
                 $("#vista").load(request);
             });
             $("#anterior").click(function () {
@@ -35,8 +46,14 @@
                 //Controller/Action?id=3
                 //Controller/Action?id=3&otro=valor
                 //Controller/Action/3
+                if (posicion > 0) {
+                    posicion -= 1;
+                }
+                else {
+                    posicion = 0;
+                }
                 var request = "/Peliculas/_DetailPelicula?idpelicula=" + idpelicula + "&posicion=" + posicion;
-                posicion -= 1;
+
                 $("#vista").load(request);
             });
         });
@@ -50,7 +67,7 @@
 
         <dl class="row">
             <dt class="col-sm-2">
-               IdPelicula
+                IdPelicula
             </dt>
             <dd class="col-sm-10">
                 @peli.IdPelicula
@@ -79,7 +96,7 @@
 
 }
 
-
+<hr />
 
 <button id="anterior">Anterior</button>
 <button id="siguiente">Siguiente </button>
