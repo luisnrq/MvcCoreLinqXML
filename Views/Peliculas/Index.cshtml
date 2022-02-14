@@ -49,9 +49,9 @@
                 <img src="@item.Poster" style="width:150px;height:150px" />
             </td>
             <td>
-                <a asp-controller="Peliculas" asp-action="EscenasPeliculas" asp-route-idpelicula="@item.IdPelicula" class="btn btn-info">Escenas</a> |
-                <a asp-controller="Peliculas" asp-action="EscenaPelicula" asp-route-idpelicula="@item.IdPelicula" class="btn btn-warning">Escenas Paginadas</a>
-                <a asp-controller="Peliculas" asp-action="DetailPelicula" asp-route-idpelicula="@item.IdPelicula" class="btn btn-warning">Escenas Paginadas Ajax</a>
+                <a asp-controller="Peliculas" asp-action="EscenasPeliculas" asp-route-idpelicula="@item.IdPelicula" >Escenas</a> <br />|
+                <a asp-controller="Peliculas" asp-action="EscenaPelicula" asp-route-idpelicula="@item.IdPelicula" >Escenas Paginadas</a> |<br />
+                <a asp-controller="Peliculas" asp-action="DetailPelicula" asp-route-idpelicula="@item.IdPelicula" >Escenas Paginadas Ajax</a>
             </td>
         </tr>
 }
